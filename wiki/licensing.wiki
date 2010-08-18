@@ -24,4 +24,4 @@ see COPYING.LESSER.txt
 ---
 
 This library used data structures from the JT Specification, that are subject to the JT specification license: 
-JT_Specification_License.txt
+[JT_Specification_License]
