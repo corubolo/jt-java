@@ -16,5 +16,11 @@ The different algorithms are described on specific pages of the wiki :
   * [HuffmanDecoding Huffman algorithm]
   * [ArithmeticDecoding Arithmetic algorithm]
 
+The dequantization algorithms are easy to implement based on the information given from the specification. 
+
+  * The `UniformQuantisation` class is used to decode X, Y and Z values. The parameters for this transformation are found in the file and a simple formula is applied on each I32 value.
+
+  * The `DeeringNormalCodec` class transforms the sextant, octant, theta, and psi values to a 3D Vector, a normal. The code is a bit more complex because it uses a set of precomputed cosinus and sinus tables to improve efficiency but the implementation should be sufficient to understand.
+
 
 _All figures references are related to the JT File Format Reference version 8.1 revision D._
