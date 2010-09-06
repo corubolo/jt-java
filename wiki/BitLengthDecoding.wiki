@@ -1,4 +1,4 @@
-= BitLength Algorithm =
+= !BitLength Algorithm =
 
 The !BitLength algorithm runs an adaptive-width bit field encoding for each value. For each input value the number of bits needed to represent it is calculated and compared to the
 current "field width". The current field width is then adjusted upwards or downwards, this
