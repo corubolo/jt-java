@@ -14,7 +14,7 @@ The encoded bits is called !CodeText in the specification. It is encoded as a !V
 The different algorithms are described on specific pages of the wiki :
   * [BitLengthDecoding BitLength algorithm]
   * [HuffmanDecoding Huffman algorithm]
-  * [ArithmeticDecoding Arithmetic aglorithm]
+  * [ArithmeticDecoding Arithmetic algorithm]
 
 
 _All figures references are related to the JT File Format Reference version 8.1 revision D._
