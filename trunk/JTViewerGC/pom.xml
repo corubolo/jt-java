@@ -1,0 +1,189 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>uk.ac.liverpool</groupId>
+	<artifactId>JTViewer</artifactId>
+	<version>0.7.2</version>
+	<name>The JT format parser and renderer</name>
+	<developers>
+
+		<developer>
+			<name>Fabio Corubolo</name>
+			<email>corubolo@gmail.com</email>
+		</developer>
+		<developer>
+			<name>Jerome Fuselier</name>
+			<email>jerome.fuselier@gmail.com</email>
+		</developer>
+
+	</developers>
+
+	<description>A pure Java library to decode the JT(TM) file format from Siemens PLM (TM).
+See http://www.jtopen.com/ for samples and the file format specification. See licensing for the specific JT specification license data structures license. The library is produced independently and has no affiliation to Siemens PLM (TM).
+This library curerntly parses JT files including faceted data, the Logocal Scene Graph and other the necessary information, and renders it using the JReality toolkit.</description>
+	<url>http://code.google.com/p/jt-java/</url>
+	<inceptionYear>2010</inceptionYear>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<!-- http://maven.apache.org/plugins/maven-compiler-plugin/ -->
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>uk.ac.liv.jt.viewer.JTViewer</mainClass>
+
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>assemble</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>src/main/assembly/jtv.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<finalName>JTViewer</finalName>
+
+				</configuration>
+			</plugin>
+		</plugins>
+
+
+	</build>
+
+	<repositories>
+		<repository>
+			<id>google.code.fab4project</id>
+			<name>google.code.fab4project</name>
+			<url>http://fab4browser.googlecode.com/svn/trunk/repository/</url>
+		</repository>
+
+	</repositories>
+
+	<dependencies>
+
+		<dependency>
+			<artifactId>jReality</artifactId>
+			<groupId>jreality</groupId>
+			<version>1.0</version>
+
+		</dependency>
+
+		<dependency>
+			<artifactId>jrworkspace</artifactId>
+			<groupId>jreality</groupId>
+			<version>1.0</version>
+
+		</dependency>
+
+		<dependency>
+			<artifactId>jterm</artifactId>
+			<groupId>jreality</groupId>
+			<version>1.0</version>
+
+		</dependency>
+
+
+
+		<dependency>
+			<artifactId>smrj.jar</artifactId>
+			<groupId>jreality</groupId>
+			<version>1.0</version>
+
+		</dependency>
+		<dependency>
+			<artifactId>sunflow.jar</artifactId>
+			<groupId>jreality</groupId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+
+			<artifactId>colorpicker</artifactId>
+			<groupId>jreality</groupId>
+			<version>1.0</version>
+
+		</dependency>
+
+		<dependency>
+			<artifactId>beans</artifactId>
+			<groupId>jreality</groupId>
+			<version>1.0</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.3</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>bcmail-jdk14</artifactId>
+					<groupId>bouncycastle</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>bcprov-jdk14</artifactId>
+					<groupId>bouncycastle</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.3.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.beanshell</groupId>
+			<artifactId>bsh</artifactId>
+			<version>2.0b4</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>janino</artifactId>
+			<version>2.5.16</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>2.7.7</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>
