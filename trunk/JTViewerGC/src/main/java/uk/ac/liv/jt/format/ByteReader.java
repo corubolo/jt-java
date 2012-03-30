@@ -37,8 +37,10 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileChannel.MapMode;
 import java.util.zip.DataFormatException;
-import java.util.zip.Inflater;
 
+import uk.ac.liv.jt.codec.IInflater;
+import uk.ac.liv.jt.codec.IInflaterFactory;
+import uk.ac.liv.jt.codec.InflaterFactory;
 import uk.ac.liv.jt.types.BBoxF32;
 import uk.ac.liv.jt.types.CoordF32;
 import uk.ac.liv.jt.types.GUID;
@@ -61,7 +63,7 @@ public class ByteReader {
 
     ByteBuffer inflated;
 
-    Inflater inf;
+    IInflater inf;
 
     private boolean inflating;
 
@@ -627,7 +629,11 @@ public class ByteReader {
     private void setInflating(boolean inflating) {
         this.inflating = inflating;
         if (inflating) {
-            inf = new Inflater(false);
+            
+            IInflaterFactory factory = InflaterFactory.getInflaterFactoryInstance();
+            inf = factory.createInflater();
+            inf.init(false);
+            
             inflated = java.nio.ByteBuffer.allocate(1024 * 30);
             inflated.order(backBuffer.order());
             inflated.flip();
