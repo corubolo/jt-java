@@ -30,8 +30,6 @@ package uk.ac.liv.jt.format.elements;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
-import uk.ac.liv.jt.format.JTFile;
 import de.jreality.math.Matrix;
 import de.jreality.scene.Transformation;
 /** 
@@ -65,9 +63,6 @@ public class GeometricTransformAttributeElement extends BaseAttributeElement {
                 }
             c = c << 1;
         }
-        Matrix m = new Matrix(transform);
-        m.transpose();
-        tra = new Transformation(m.getArray());//
 
         if(reader.MAJOR_VERSION >= 9){
             reader.readBytes(readValues * 4);
@@ -91,7 +86,17 @@ public class GeometricTransformAttributeElement extends BaseAttributeElement {
      * @return the JReality Transformation object 
      */
     public Transformation getTransformation() {
+        if(tra == null) {
+            Matrix m = new Matrix(transform);
+            m.transpose();
+            tra = new Transformation(m.getArray());
+        }
         return tra;
+    }
+    
+    
+    public double[] getTransformationMatrix() {
+        return transform;
     }
 
 }
