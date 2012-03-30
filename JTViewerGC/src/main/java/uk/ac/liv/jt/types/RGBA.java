@@ -43,6 +43,16 @@ public class RGBA {
     public Color getColor() {
         return new Color(r, g, b, a);
     }
+    
+    
+    public float[] getColorTable() {
+        float[] ret = new float[4];
+        ret[0] = r;
+        ret[1] = g;
+        ret[2] = b;
+        ret[3] = a;
+        return ret;
+    }
 
     public RGBA(float r, float g, float b, float a) {
         super();
