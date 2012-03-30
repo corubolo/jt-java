@@ -52,7 +52,6 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
-import uk.ac.liv.jt.debug.DebugJTReader;
 import uk.ac.liv.jt.segments.LSGSegment;
 import uk.ac.liv.jt.viewer.JTReader;
 import de.jreality.math.MatrixBuilder;
@@ -71,6 +70,7 @@ import de.jreality.tutorial.viewer.FileDrop.Listener;
 import de.jreality.ui.viewerapp.ViewerApp;
 import de.jreality.util.CameraUtility;
 import de.jreality.util.RenderTrigger;
+import uk.ac.liv.jt.debug.DebugInfo;
 
 /**
  * A simple class showing how to construct a simple viewer from scratch, without using {@link ViewerApp} or another
@@ -92,8 +92,8 @@ public class ViewerFromScratch {
 
 
         // First we register the JT viewer
-        DebugJTReader.debugCodec = false;
-        DebugJTReader.debugMode = false;
+        DebugInfo.debugCodec = false;
+        DebugInfo.debugMode = false;
         LSGSegment.doRender = false;
 
         // register the reader class for the JT-format

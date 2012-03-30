@@ -37,7 +37,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import uk.ac.liv.jt.debug.DebugJTReader;
+import uk.ac.liv.jt.debug.DebugInfo;
 import uk.ac.liv.jt.segments.JTSegment;
 import uk.ac.liv.jt.segments.LSGSegment;
 import uk.ac.liv.jt.types.GUID;
@@ -135,7 +135,7 @@ public class JTFile {
         tocOffset = reader.readI32();
         lsgSegmentID = reader.readGUID();
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println("Version:" + version);
             System.out.println("Byte Order:" + reader.getByteOrder());
             System.out.println("File Attribute:" + getFileAttribute());
@@ -164,7 +164,7 @@ public class JTFile {
             if (segment.getID().equals(lsgSegmentID))
                 lsgSegment = (LSGSegment) segment;
 
-            if (DebugJTReader.debugMode) {
+            if (DebugInfo.debugMode) {
                 System.out.println("Segment Entry " + i + ":");
                 System.out.println("  GUID: " + segment.getID());
                 System.out.println("  Offset: " + segment.getOffset());

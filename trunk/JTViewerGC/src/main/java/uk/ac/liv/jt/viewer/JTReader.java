@@ -32,13 +32,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import uk.ac.liv.jt.format.JTFile;
-import uk.ac.liv.jt.format.elements.TriStripSetShapeLODElement;
 import uk.ac.liv.jt.segments.LSGSegment;
 import de.jreality.reader.AbstractReader;
 import de.jreality.util.Input;
+import uk.ac.liv.jt.format.elements.TriStripSetShapeLODElement;
 
 
 /**

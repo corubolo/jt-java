@@ -31,8 +31,6 @@ import java.io.IOException;
 
 import uk.ac.liv.jt.codec.Int32Compression;
 import uk.ac.liv.jt.codec.Predictors.PredictorType;
-import uk.ac.liv.jt.debug.DebugJTReader;
-import uk.ac.liv.jt.format.JTElement;
 import uk.ac.liv.jt.format.JTQuantizationParam;
 import uk.ac.liv.jt.format.LossyQuantizedRawVertexData;
 import uk.ac.liv.jt.format.QuantizedVertexCoordArray;
@@ -47,6 +45,7 @@ import de.jreality.scene.Appearance;
 import de.jreality.scene.Viewer;
 import de.jreality.scene.proxy.scene.SceneGraphComponent;
 import de.jreality.shader.CommonAttributes;
+import uk.ac.liv.jt.debug.DebugInfo;
 
 /** A Tri-Strip Set Shape LOD Element contains the geometric shape 
   definition data (e.g. vertices, polygons, normals, etc.) for a single 
@@ -109,7 +108,7 @@ public class TriStripSetShapeLODElement extends ShapeLODElement {
         quantParam = new JTQuantizationParam(getReader());
         quantParam.read();
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("*** Vertex Shape LOD Data ***");
             System.out.println("Version Number: " + versionNumber);
@@ -146,7 +145,7 @@ public class TriStripSetShapeLODElement extends ShapeLODElement {
          * collections. */
         int colorBinding = getReader().readU8();
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("*** Vertex Based Shape Compressed RepData ***");
             System.out.println("Version Number: " + versionNumber);
@@ -160,7 +159,7 @@ public class TriStripSetShapeLODElement extends ShapeLODElement {
         quantParam.read();
 
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("** Primitive List Indices **");
         }
@@ -172,7 +171,7 @@ public class TriStripSetShapeLODElement extends ShapeLODElement {
         primitiveListIndices = Int32Compression.read_VecI32_Int32CDP(
                 getReader(), PredictorType.Stride1);
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println(" => Primitive List Indices (" + primitiveListIndices.length + ") ");
             for (int primitiveListIndice : primitiveListIndices)

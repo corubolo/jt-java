@@ -50,9 +50,9 @@ public class DebugJTReader extends AbstractReader {
 
     private ByteReader reader;
 
-    public static boolean debugMode = false;
-    // A more verbose debugging mode for decoding algorithms
-    public static boolean debugCodec = false;
+//    public static boolean debugMode = false;
+//    // A more verbose debugging mode for decoding algorithms
+//    public static boolean debugCodec = false;
 
     public JTFile getJtFile() {
         return jtFile;
@@ -97,7 +97,7 @@ public class DebugJTReader extends AbstractReader {
             reader = new ByteReader(jtf);
             setJtFile(new JTFile(reader));
 
-            if (debugMode) {
+            if (DebugInfo.debugMode) {
                 System.out.println("\n=================");
                 System.out.println("== File Header ==");
                 System.out.println("=================\n");
@@ -106,7 +106,7 @@ public class DebugJTReader extends AbstractReader {
             // Read File header
             jtFile.readHeader();
 
-            if (debugMode) {
+            if (DebugInfo.debugMode) {
                 System.out.println("\n=================");
                 System.out.println("== TOC Segment ==");
                 System.out.println("=================\n");
@@ -204,7 +204,7 @@ public class DebugJTReader extends AbstractReader {
             	
                     // if (segment.getType() == 1) {
 
-                    if (debugMode) {
+                    if (DebugInfo.debugMode) {
                         System.out.println("\n===============");
                         System.out.println("== Segment " + segment.getType()
                                 + " ==");

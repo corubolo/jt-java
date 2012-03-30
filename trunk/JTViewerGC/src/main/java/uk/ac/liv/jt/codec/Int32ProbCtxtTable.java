@@ -29,7 +29,7 @@ package uk.ac.liv.jt.codec;
 
 import java.io.IOException;
 
-import uk.ac.liv.jt.debug.DebugJTReader;
+import uk.ac.liv.jt.debug.DebugInfo;
 import uk.ac.liv.jt.format.BitReader;
 
 public class Int32ProbCtxtTable {
@@ -85,7 +85,7 @@ public class Int32ProbCtxtTable {
         if (isFirstTable)
             probCtxt.setMinValue(reader.readU32(32));
 
-        if (DebugJTReader.debugCodec) {
+        if (DebugInfo.debugCodec) {
             System.out.println("Prob Context Table Entry Count: "
                     + tableEntryCount);
             System.out.println("Number symbol bits: " + nbSymbolBits);
@@ -129,7 +129,7 @@ public class Int32ProbCtxtTable {
                     associatedValue, nextContext);
             cumCount += occCount;
 
-            if (DebugJTReader.debugCodec)
+            if (DebugInfo.debugCodec)
                 System.out
                         .println(String
                                 .format("%d => Symbol: %d, Occurence Count: %d, Cum Count : %d, Associated Value: %d, Next Context: %d",

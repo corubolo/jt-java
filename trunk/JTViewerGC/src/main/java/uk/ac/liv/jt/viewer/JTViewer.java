@@ -40,6 +40,7 @@ import de.jreality.plugin.content.ContentTools;
 import de.jreality.reader.Readers;
 import de.jreality.scene.Viewer;
 import de.jtem.jrworkspace.plugin.sidecontainer.template.ShrinkPanelPlugin;
+import uk.ac.liv.jt.debug.DebugInfo;
 
 // JPanel -> http://www3.math.tu-berlin.de/jreality/phpbb/viewtopic.php?f=3&t=455
 // Swing integration : http://www3.math.tu-berlin.de/jreality/phpbb/viewtopic.php?f=3&t=53
@@ -60,8 +61,8 @@ public class JTViewer {
      */
     public static void main(String[] args) {
 
-        DebugJTReader.debugCodec = false;
-        DebugJTReader.debugMode = false;
+        DebugInfo.debugCodec = false;
+        DebugInfo.debugMode = false;
         LSGSegment.doRender = false;
         
         // register the reader class for the JT-format

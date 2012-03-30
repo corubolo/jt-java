@@ -33,7 +33,7 @@ import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 
-import uk.ac.liv.jt.debug.DebugJTReader;
+import uk.ac.liv.jt.debug.DebugInfo;
 import uk.ac.liv.jt.types.GUID;
 
 /**
@@ -234,7 +234,7 @@ public class JTElement {
         int dataSectionLength = getLength() - HEADER_LENGTH + 4;
         if (dataSectionLength > 0) {
             byte[] s = getReader().readBytes(dataSectionLength);
-            if (DebugJTReader.debugMode) {
+            if (DebugInfo.debugMode) {
                 String ss = "";
                 for (byte b : s)
                     ss += (b & 0xff) + " ";

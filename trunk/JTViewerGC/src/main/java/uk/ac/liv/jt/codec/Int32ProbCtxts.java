@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import uk.ac.liv.jt.debug.DebugJTReader;
+import uk.ac.liv.jt.debug.DebugInfo;
 import uk.ac.liv.jt.format.BitReader;
 import uk.ac.liv.jt.format.ByteReader;
 
@@ -112,7 +112,7 @@ public class Int32ProbCtxts {
     public void read(int codecType) throws IOException {
         contextTableCount = reader.readU8();
 
-        if (DebugJTReader.debugCodec) {
+        if (DebugInfo.debugCodec) {
             System.out.println("\n == Probability Context ==\n");
             System.out
                     .println("Prob Context Table Count: " + contextTableCount);
