@@ -29,11 +29,9 @@ package uk.ac.liv.jt.format;
 
 import java.io.IOException;
 
-import uk.ac.liv.jt.codec.DeeringNormalCodec;
 import uk.ac.liv.jt.codec.Int32Compression;
 import uk.ac.liv.jt.codec.Predictors.PredictorType;
-import uk.ac.liv.jt.debug.DebugJTReader;
-import uk.ac.liv.jt.types.Vec3D;
+import uk.ac.liv.jt.debug.DebugInfo;
 
 /** The Lossy Quantized Raw Vertex Data collection contains all the 
  * per-vertex information (i.e. UV texture coordinates, color, normal 
@@ -69,7 +67,7 @@ public class LossyQuantizedRawVertexData {
     public void read(int normalBinding, int textureCoordBinding, 
     		int colorBinding) throws IOException {
 
-        if (DebugJTReader.debugMode)
+        if (DebugInfo.debugMode)
             System.out.println("** Lossy Quantized Raw Vertex Data **");
 
         quantVertexCoord.read();
@@ -87,7 +85,7 @@ public class LossyQuantizedRawVertexData {
 
         }
         
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println("** Vertex Data Indices **");
         }
 
@@ -101,7 +99,7 @@ public class LossyQuantizedRawVertexData {
         vertexDataIndices = Int32Compression.read_VecI32_Int32CDP(reader,
                 PredictorType.StripIndex);
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
         	System.out.println();
             System.out.println(" => Vertex Data Indices (" + vertexDataIndices.length + ")");
 

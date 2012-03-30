@@ -29,7 +29,7 @@ package uk.ac.liv.jt.format;
 
 import java.io.IOException;
 
-import uk.ac.liv.jt.debug.DebugJTReader;
+import uk.ac.liv.jt.debug.DebugInfo;
 
 /** Quantization Parameters specifies for each shape data type grouping 
  * (i.e. Vertex, Normal, Texture Coordinates, Color) the number of 
@@ -75,7 +75,7 @@ public class JTQuantizationParam {
          * color component. */
         bitsPerColor = reader.readU8();
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println("Bits per vertex:" + getBitsPerVertex());
             System.out.println("Normal bits factor:" + getNormalBitsFactor());
             System.out.println("Bits per normal:" + getBitsPerNormal());

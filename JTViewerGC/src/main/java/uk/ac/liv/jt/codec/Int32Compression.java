@@ -30,9 +30,9 @@ package uk.ac.liv.jt.codec;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.ArrayList;
 
 import uk.ac.liv.jt.codec.Predictors.PredictorType;
+import uk.ac.liv.jt.debug.DebugInfo;
 import uk.ac.liv.jt.debug.DebugJTReader;
 import uk.ac.liv.jt.format.BitBuffer;
 import uk.ac.liv.jt.format.ByteReader;
@@ -63,7 +63,7 @@ public class Int32Compression {
          * number of Probability Context Tables is 2).
          */
 
-        if (DebugJTReader.debugCodec)
+        if (DebugInfo.debugCodec)
             System.out.println("Codec Type: " + codecType);
 
         if ((codecType == HUFFMAN_CODEC) || (codecType == ARITHMETIC_CODEC)) {
@@ -74,14 +74,14 @@ public class Int32Compression {
 
             if (outOfBandValueCount > 0) {
 
-                if (DebugJTReader.debugCodec) {
+                if (DebugInfo.debugCodec) {
                     System.out.println();
                     System.out.println("** Out Of Band Values **");
                 }
                 HuffTreeNode.oob = true;
                 int[] outOfBand = read_Int32CDP(reader);
                 HuffTreeNode.oob = false;
-                if (DebugJTReader.debugCodec) {
+                if (DebugInfo.debugCodec) {
                     System.out.println("Out Of Band Values (" + outOfBand.length + ") ");
                     //                    for (int element : outOfBand)
                     //                        System.out.print(element + " ");
@@ -96,7 +96,7 @@ public class Int32Compression {
             codeTextLength = reader.readI32();
             valueElementCount = reader.readI32();
 
-            if (DebugJTReader.debugCodec) {
+            if (DebugInfo.debugCodec) {
                 System.out.println();
                 System.out.println("Code Text Length: " + codeTextLength);
                 System.out.println("Value Element Count: " + valueElementCount);
@@ -109,7 +109,7 @@ public class Int32Compression {
                 // Symbol Count
                 numSymbolsToRead = reader.readI32();
 
-                if (DebugJTReader.debugCodec)
+                if (DebugInfo.debugCodec)
                     System.out.println("Symbol Count: " + numSymbolsToRead);
             } else
                 System.err
@@ -125,7 +125,7 @@ public class Int32Compression {
         int[] residualValues = getResidualValues(reader, codecType,
                 codeTextLength, probContext, numSymbolsToRead, valueElementCount);
 
-        if (DebugJTReader.debugCodec) {
+        if (DebugInfo.debugCodec) {
             System.out.println("Residual Values I32 (" + residualValues.length
                     + "): ");
             //            for (int residualValue : residualValues)

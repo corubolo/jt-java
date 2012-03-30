@@ -32,7 +32,7 @@ import java.io.IOException;
 import uk.ac.liv.jt.codec.Int32Compression;
 import uk.ac.liv.jt.codec.Predictors.PredictorType;
 import uk.ac.liv.jt.codec.UniformQuantisation;
-import uk.ac.liv.jt.debug.DebugJTReader;
+import uk.ac.liv.jt.debug.DebugInfo;
 import uk.ac.liv.jt.types.U32Vector;
 
 
@@ -66,7 +66,7 @@ public class QuantizedVertexCoordArray {
         int vertexCount = reader.readI32();
 
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("** X Vertex Coord Codes: **");
         }
@@ -77,7 +77,7 @@ public class QuantizedVertexCoordArray {
         xValues = UniformQuantisation.dequantize(xVertexCoordCodesVecU32,
                 ptQuant.getXQuantizerData());
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("Float values (" + xValues.length + ") ");
 //            for (double xValue : xValues)
@@ -85,7 +85,7 @@ public class QuantizedVertexCoordArray {
 //            System.out.println();
         }
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("** Y Vertex Coord Codes: **");
         }
@@ -96,7 +96,7 @@ public class QuantizedVertexCoordArray {
         yValues = UniformQuantisation.dequantize(yVertexCoordCodesVecU32,
                 ptQuant.getYQuantizerData());
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("Float values (" + yValues.length + ") ");
 //            for (double yValue : yValues)
@@ -104,7 +104,7 @@ public class QuantizedVertexCoordArray {
 //            System.out.println();
         }
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("** Z Vertex Coord Codes: **");
         }
@@ -115,7 +115,7 @@ public class QuantizedVertexCoordArray {
         zValues = UniformQuantisation.dequantize(zVertexCoordCodesVecU32,
                 ptQuant.getZQuantizerData());
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("Float values (" + zValues.length + ") ");
 //                    for (double zValue : zValues)

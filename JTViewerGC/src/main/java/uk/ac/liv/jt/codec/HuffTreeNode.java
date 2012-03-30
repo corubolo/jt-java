@@ -27,9 +27,9 @@
  ******************************************************************************/
 package uk.ac.liv.jt.codec;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
+import uk.ac.liv.jt.debug.DebugInfo;
 import uk.ac.liv.jt.debug.DebugJTReader;
 
 public class HuffTreeNode implements Comparable<HuffTreeNode> {
@@ -103,7 +103,7 @@ public class HuffTreeNode implements Comparable<HuffTreeNode> {
             if (o2.equals(this)){
                 k = 0;
                 System.out.println("equal");} 
-            if (DebugJTReader.debugCodec){
+            if (DebugInfo.debugCodec){
                 System.out.print( sign(k));
                 System.out.print(" " +sign(a));
                 System.out.print(" " + sign(b));

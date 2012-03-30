@@ -32,7 +32,7 @@ import java.io.IOException;
 import uk.ac.liv.jt.codec.DeeringNormalCodec;
 import uk.ac.liv.jt.codec.Int32Compression;
 import uk.ac.liv.jt.codec.Predictors.PredictorType;
-import uk.ac.liv.jt.debug.DebugJTReader;
+import uk.ac.liv.jt.debug.DebugInfo;
 import uk.ac.liv.jt.types.U32Vector;
 import uk.ac.liv.jt.types.Vec3D;
 
@@ -64,7 +64,7 @@ public class QuantizedVertexNormalArray {
         int normalCount = reader.readI32();
 
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("** Sextant Codes: **");
         }
@@ -74,13 +74,13 @@ public class QuantizedVertexNormalArray {
         U32Vector sextantCodes = Int32Compression.read_VecU32_Int32CDP(reader,
                 PredictorType.Lag1);
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("Float values (" + sextantCodes.length() + ") ");
         }
 
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("** Octant Codes: **");
         }
@@ -89,13 +89,13 @@ public class QuantizedVertexNormalArray {
         U32Vector octantCodes = Int32Compression.read_VecU32_Int32CDP(reader,
                 PredictorType.Lag1);
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("Float values (" + octantCodes.length() + ") ");
         }
 
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("** Theta Codes: **");
         }
@@ -107,13 +107,13 @@ public class QuantizedVertexNormalArray {
         U32Vector thetaCodes = Int32Compression.read_VecU32_Int32CDP(reader,
                 PredictorType.Lag1);
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("Float values (" + thetaCodes.length() + ") ");
         }
 
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("** Psi Codes: **");
         }
@@ -125,7 +125,7 @@ public class QuantizedVertexNormalArray {
         U32Vector psiCodes = Int32Compression.read_VecU32_Int32CDP(reader,
                 PredictorType.Lag1);
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println();
             System.out.println("Float values (" + psiCodes.length() + ") ");
         }

@@ -29,7 +29,7 @@ package uk.ac.liv.jt.segments;
 
 import java.io.IOException;
 
-import uk.ac.liv.jt.debug.DebugJTReader;
+import uk.ac.liv.jt.debug.DebugInfo;
 import uk.ac.liv.jt.format.JTElement;
 /** 
  * Shape LOD Segment contains an Element that defines the geometric shape 
@@ -50,7 +50,7 @@ public class LODSegment extends JTSegment {
     public void read() throws IOException {
         super.read();
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println("- Header");
             System.out.println("  Id:" + id);
             System.out.println("  Type:" + segType);
@@ -63,7 +63,7 @@ public class LODSegment extends JTSegment {
 
         JTElement element = JTElement.createJTElement(reader);
 
-        if (DebugJTReader.debugMode) {
+        if (DebugInfo.debugMode) {
             System.out.println("Element length: " + element.getLength());
             System.out.println("Object Type Id: " + element.getId());
             System.out.println("Object Base Type: "
