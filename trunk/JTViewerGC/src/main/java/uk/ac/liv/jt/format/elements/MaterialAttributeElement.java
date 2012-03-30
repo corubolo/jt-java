@@ -104,5 +104,18 @@ public class MaterialAttributeElement extends BaseAttributeElement {
         return app;
 
     }
-
+    
+    /**
+     * Returns a AppearanceData containing the specific material attributes.
+     * @return AppearanceData
+     */
+    public AppearanceData getAppearanceData() {
+        AppearanceData appD = new AppearanceData();
+        appD.shineness = shineness;
+        appD.ambient = ambient;
+        appD.specular = specular;
+        appD.diffuse = diffuse;
+        appD.emission = emission;
+        return appD;
+    }
 }
