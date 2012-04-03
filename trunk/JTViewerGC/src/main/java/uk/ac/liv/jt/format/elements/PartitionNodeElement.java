@@ -106,14 +106,15 @@ public class PartitionNodeElement extends GroupNodeElement {
 
     public SceneGraphComponent getGeometry(LSGSegment lsgSegment) throws IOException{
         System.out.println("Loading " + filename);
-        if(!new File(filename).exists()){ 
+        
+        URI u = lsgSegment.file.uri.resolve(filename);
+        
+        if(!new File(u).exists()){ 
             SceneGraphComponent c = generateBBOX("Missing  JT file "+filename+"- BBox only");
-
             return c;
 
         }
         if (vertexCountRange.max<MAX_VERTICES) {
-            URI u =lsgSegment.file.uri.resolve(filename);
             try {
                 JTFile jtFile = new JTFile(new File(u), u);
                 LSGSegment lsg = jtFile.read();
