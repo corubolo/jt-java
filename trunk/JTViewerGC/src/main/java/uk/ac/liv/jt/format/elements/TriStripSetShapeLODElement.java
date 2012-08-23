@@ -68,7 +68,7 @@ public class TriStripSetShapeLODElement extends ShapeLODElement {
 
 
     /* Normals for the vertices */
-    Vec3D[] normals;
+    public Vec3D[] normals;
     private JTQuantizationParam quantParam;
     public boolean uncompressed;
 
@@ -309,17 +309,20 @@ public class TriStripSetShapeLODElement extends ShapeLODElement {
         int numVertices = primitiveListIndices[numFaces];
 //        System.out.println(numFaces);
 //        System.out.println(numVertices);
-        for (int n = 0; n < len; n++)
-            if (textureCoordBinding == 1) {
-
-            }
-        if (colorBinding == 1 ) {
-
-        }
+        
         normal = new double[numVertices*3];
         vertex = new double[numVertices*3];
         for (int i=0;i<numVertices;i++) {
             int j = i *3;
+            if (textureCoordBinding == 1) {
+                //reader.readF32();
+                //reader.readF32();
+            }
+            if (colorBinding == 1 ) {
+                reader.readF32();
+                reader.readF32();
+                reader.readF32();
+            }
             if (normalBinding == 1) {
                 
                 normal[j+0] = reader.readF32();
