@@ -67,8 +67,10 @@ public class LossyQuantizedRawVertexData {
     public void read(int normalBinding, int textureCoordBinding, 
     		int colorBinding) throws IOException {
 
-        if (DebugInfo.debugMode)
+        if (DebugInfo.debugMode) {
+            System.out.println("----Binding attributes: normal " + normalBinding + " texture " + textureCoordBinding + " color " + colorBinding);
             System.out.println("** Lossy Quantized Raw Vertex Data **");
+        }
 
         quantVertexCoord.read();
 
@@ -81,8 +83,8 @@ public class LossyQuantizedRawVertexData {
         }
 
         if (colorBinding != 0) {
-            // this.readQuantizedVertexColorArray();
-
+            QuantizedVertexNormalArray quantVertex = new QuantizedVertexNormalArray(reader);
+            quantVertex.read();
         }
         
         if (DebugInfo.debugMode) {
